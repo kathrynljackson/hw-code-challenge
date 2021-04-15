@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import IndustryChart from '../charts/IndustryChart';
+
 
 class Broker extends Component{
     constructor(props){
@@ -9,10 +11,13 @@ class Broker extends Component{
         
     }
 
+
+
     render() {
         return(
+            
             <div>
-                
+                <IndustryChart industries={this.props.brokerSlice.industries}/>
             </div>
         )
     }
