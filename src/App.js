@@ -94,6 +94,7 @@ class App extends Component {
   }
 
  render(){
+   
    if(!this.state.appData.broker) {
      return (
        <h1>Loading...</h1>
@@ -101,6 +102,10 @@ class App extends Component {
    } else {
       return(
         <div>
+          <header className='header'>
+            <p>Company: {this.state.appData.broker.name}</p>
+            <p>Summary: {this.state.appData.broker.description}</p>
+          </header>
           <Broker broker={this.state.appData.broker} brokerSlice={this.state.appData.brokerSlice}/>
           <Carrier carrier={this.state.appData.carrier} carrierSlice={this.state.appData.carrierSlice}/>
         </div>
