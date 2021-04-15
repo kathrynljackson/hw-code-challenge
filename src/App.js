@@ -96,8 +96,8 @@ class App extends Component {
   render() {
     return(
       <div>
-        <Broker />
-        <Carrier />
+        <Broker broker={this.state.appData.broker} brokerSlice={this.state.appData.brokerSlice}/>
+        <Carrier carrier={this.state.appData.carrier} carrierSlice={this.state.appData.carrierSlice}/>
       </div>
     )
   }
