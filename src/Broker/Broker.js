@@ -10,20 +10,20 @@ class Broker extends Component{
        }
     }
 
-    // componentWillMount(){
-    //     this.setState({
-    //         broker: this.props.broker,
-    //         brokerSlice: this.props.brokerSlice
-    //     })
-    // }
+    componentWillMount(){
+        this.setState({
+            broker: this.props.broker,
+            brokerSlice: this.props.brokerSlice
+        })
+    }
 
     
 
-    render() {
+    render(){
         return(
             <div>
                 <IndustryChart industries={this.props.brokerSlice.industries}/>
-                <PremiumChart premiums={this.props.brokerSlice.premiums}/>
+                <PremiumChart premiums={this.props.brokerSlice.premiumRange}/>
             </div>
         )
     }

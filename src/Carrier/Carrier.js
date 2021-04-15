@@ -10,11 +10,11 @@ class Carrier extends Component{
        }
     }
 
-    render() {
+    render(){
         return(
             <div>
-                <IndustryChart industries={this.props.carrierSlice.industries}/>
-                <PremiumChart premiums={this.props.carrierSlice.premiums}/>
+                {/* <IndustryChart industries={this.props.carrierSlice.industries}/> */}
+                {/* <PremiumChart premiums={this.props.carrierSlice.premiums}/> */}
             </div>
         )
     }

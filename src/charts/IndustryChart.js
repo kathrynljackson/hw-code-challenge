@@ -14,14 +14,15 @@ class IndustryChart extends Component{
     constructor(props){
         super(props);
         this.state = {
- 
+
         }
     }
 
-   render(){ 
 
+   render(){ 
         return (
             <div>
+                
                 <Doughnut
                     data={{ 
                         labels: this.props.industries.map(i => {
@@ -29,11 +30,20 @@ class IndustryChart extends Component{
                         }),
                         datasets: [{
                             label: 'Industries',
-                            data: [300, 50, 100],
+                            data: this.props.industries.map(i => {
+                                return i.premium
+                            }),
                             backgroundColor: [
-                            'rgb(255, 99, 132)',
-                            'rgb(54, 162, 235)',
-                            'rgb(255, 205, 86)'
+                            'rgb(2,61,64)',
+                            'rgb(1,101,103)',
+                            'rgb(1,143,145)',
+                            'rgb(0,175,177)',
+                            'rgb(8,199,176)',
+                            'rgb(0,234,203)',
+                            'rgb(62,167,23)',
+                            'rgb(0,206,95)',
+                            'rgb(0,232,50)',
+                            'rgb(0,255,56)',
                             ],
                             hoverOffset: 4
                         }] 
