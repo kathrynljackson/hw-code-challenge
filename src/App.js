@@ -1,19 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
-import getData from './fetch/getData';
+import Carrier from './Carrier/Carrier';
+import Broker from './Broker/Broker';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       appData: {}
     }
   }
 
   componentDidMount() {
-    console.log('INITIAL STATE', this.state)
-    console.log('COMPONENT 2 DID MOUNT')
+    /* THESE CONSOLE LOGS ARE FINE */
+    // console.log('INITIAL STATE', this.state)
+    // console.log('COMPONENT DID MOUNT')
 
     fetch('https://hw-fe-challenge-api.herokuapp.com/graphql', {
       method: 'POST',
@@ -80,9 +81,11 @@ class App extends Component {
     // .then(res => console.log('DETAILED WANTED RESPONSE', res.data.mostRecentSnapshot))
     // .then(data => console.log('DATA', data))
 
-    /*NOTE this method doesn't like console.logs and I need to figure out why that problem occurs now that I know wha the problem is. */
+    /*NOTE 
+    - this FETCH method doesn't like console.logs and I need to figure out why that problem occurs now that I know wha the problem is. 
+    - REFACTOR: put this method into a separate file for readability */
     .then(res => {
-      this.setState({ appData: res })
+      this.setState({ appData: res.data.mostRecentSnapshot })
     })
 
     
@@ -93,7 +96,8 @@ class App extends Component {
   render() {
     return(
       <div>
-
+        <Broker />
+        <Carrier />
       </div>
     )
   }
