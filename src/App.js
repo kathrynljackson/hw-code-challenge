@@ -11,12 +11,12 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     /* THESE CONSOLE LOGS ARE FINE */
     // console.log('INITIAL STATE', this.state)
     // console.log('COMPONENT DID MOUNT')
 
-    fetch('https://hw-fe-challenge-api.herokuapp.com/graphql', {
+    let fetchNow = await fetch('https://hw-fe-challenge-api.herokuapp.com/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: `
@@ -88,18 +88,29 @@ class App extends Component {
       this.setState({ appData: res.data.mostRecentSnapshot })
     })
 
+    return fetchNow
     
 
   }
 
-
-  render() {
-    return(
-      <div>
-        <Broker broker={this.state.appData.broker} brokerSlice={this.state.appData.brokerSlice}/>
-        <Carrier carrier={this.state.appData.carrier} carrierSlice={this.state.appData.carrierSlice}/>
-      </div>
-    )
+ render(){
+   
+   if(!this.state.appData.broker) {
+     return (
+       <h1>Loading...</h1>
+     )
+   } else {
+      return(
+        <div>
+          <header className='header'>
+            <p>Company: {this.state.appData.broker.name}</p>
+            <p>Summary: {this.state.appData.broker.description}</p>
+          </header>
+          <Broker broker={this.state.appData.broker} brokerSlice={this.state.appData.brokerSlice}/>
+          <Carrier carrier={this.state.appData.carrier} carrierSlice={this.state.appData.carrierSlice}/>
+        </div>
+      )
+    }
   }
 }
 
