@@ -10,27 +10,17 @@ import { Doughnut } from 'react-chartjs-2';
 
 
 
-class IndustryChart extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-
-        }
-    }
-
-
-   render(){ 
+export default function IndustryChart(props){
         return (
-            <div>
-                
+            <div className='industry-chart'>
                 <Doughnut
                     data={{ 
-                        labels: this.props.industries.map(i => {
+                        labels: props.industries.map(i => {
                             return i.title
                         }),
                         datasets: [{
                             label: 'Industries',
-                            data: this.props.industries.map(i => {
+                            data: props.industries.map(i => {
                                 return i.premium
                             }),
                             backgroundColor: [
@@ -54,6 +44,4 @@ class IndustryChart extends Component{
             </div>
         )
     }
-}
 
-export default IndustryChart;

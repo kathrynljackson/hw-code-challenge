@@ -6,26 +6,30 @@ class Broker extends Component{
     constructor(props){
     super(props);
        this.state = {
-
+        
        }
     }
 
-    componentWillMount(){
-        this.setState({
-            broker: this.props.broker,
-            brokerSlice: this.props.brokerSlice
-        })
-    }
+    // componentDidMount(){
+    //     this.setState({ brokerData: this.props.broker,
+    //     brokerSliceData: this.props.brokerSlice })
+    // }
 
     
 
     render(){
-        return(
-            <div>
-                <IndustryChart industries={this.props.brokerSlice.industries}/>
-                <PremiumChart premiums={this.props.brokerSlice.premiumRange}/>
-            </div>
-        )
+        if(!this.props.brokerSlice){
+            return(
+                <h1>Loading Broker Data...</h1>
+            )
+        } else {
+            return(
+                <div>
+                    <IndustryChart industries={this.props.brokerSlice.industries}/>
+                    <PremiumChart premiums={this.props.brokerSlice.premiumRange}/>
+                </div>
+            )
+        }
     }
 }
 

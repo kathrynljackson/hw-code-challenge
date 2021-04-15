@@ -16,7 +16,7 @@ class App extends Component {
     // console.log('INITIAL STATE', this.state)
     // console.log('COMPONENT DID MOUNT')
 
-    await fetch('https://hw-fe-challenge-api.herokuapp.com/graphql', {
+    let fetchNow = await fetch('https://hw-fe-challenge-api.herokuapp.com/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: `
@@ -88,11 +88,17 @@ class App extends Component {
       this.setState({ appData: res.data.mostRecentSnapshot })
     })
 
+    return fetchNow
     
 
   }
 
  render(){
+   if(!this.state.appData.broker) {
+     return (
+       <h1>Loading...</h1>
+     )
+   } else {
       return(
         <div>
           <Broker broker={this.state.appData.broker} brokerSlice={this.state.appData.brokerSlice}/>
@@ -101,5 +107,6 @@ class App extends Component {
       )
     }
   }
+}
 
 export default App;

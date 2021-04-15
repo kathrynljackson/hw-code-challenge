@@ -10,13 +10,20 @@ class Carrier extends Component{
        }
     }
 
+
     render(){
-        return(
-            <div>
-                {/* <IndustryChart industries={this.props.carrierSlice.industries}/> */}
-                {/* <PremiumChart premiums={this.props.carrierSlice.premiums}/> */}
-            </div>
-        )
+        if(!this.props.carrierSlice){
+            return(
+                <h1>Loading Carrier Data...</h1>
+            )
+        } else {
+            return(
+                <div>
+                    <IndustryChart industries={this.props.carrierSlice.industries}/>
+                    <PremiumChart premiums={this.props.carrierSlice.premiumRange}/>
+                </div>
+            )
+        }
     }
 }
 
