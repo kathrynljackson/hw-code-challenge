@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IndustryChart from '../charts/IndustryChart';
 import PremiumChart from '../charts/PremuimChart';
+import ProductsChart from '../charts/ProductsChart';
 
 class Broker extends Component{
     constructor(props){
@@ -10,12 +11,6 @@ class Broker extends Component{
        }
     }
 
-    // componentDidMount(){
-    //     this.setState({ brokerData: this.props.broker,
-    //     brokerSliceData: this.props.brokerSlice })
-    // }
-
-    
 
     render(){
         if(!this.props.brokerSlice){
@@ -27,6 +22,7 @@ class Broker extends Component{
                 <div>
                     <IndustryChart industries={this.props.brokerSlice.industries}/>
                     <PremiumChart premiums={this.props.brokerSlice.premiumRange}/>
+                    <ProductsChart products={this.props.brokerSlice.products} />
                 </div>
             )
         }
