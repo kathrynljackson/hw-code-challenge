@@ -1,0 +1,14 @@
+.toggle-buttons {
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+.button {
+    margin-right: 2%;
+    font-size: larger;
+    padding: 1%;
+    border-radius: 10px;
+    background-color: darkturquoise;
+    border: darkturquoise;
+    font-weight: bold;
+}
