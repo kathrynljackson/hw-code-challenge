@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import Carrier from './Carrier/Carrier';
 import Broker from './Broker/Broker';
+import Toggle from './Toggle/Toggle';
 
 class App extends Component {
   constructor(props) {
@@ -101,13 +102,23 @@ class App extends Component {
      )
    } else {
       return(
-        <div>
+        <div className='app'>
           <header className='header'>
-            <p>Company: {this.state.appData.broker.name}</p>
-            <p>Summary: {this.state.appData.broker.description}</p>
+            <h1>{this.state.appData.broker.name}</h1>
+            <div className='header-info'>
+              <a className='title'>Company:</a>
+              <a>{this.state.appData.broker.name}</a>
+              <a className='title'>Summary:</a>
+              <a>{this.state.appData.broker.description}</a>
+            </div>
           </header>
-          <Broker broker={this.state.appData.broker} brokerSlice={this.state.appData.brokerSlice}/>
-          <Carrier carrier={this.state.appData.carrier} carrierSlice={this.state.appData.carrierSlice}/>
+          <div className='toggle-buttons'>
+            <Toggle />
+          </div>
+          <main className='shown-data'>
+            <Broker broker={this.state.appData.broker} brokerSlice={this.state.appData.brokerSlice}/>
+            <Carrier carrier={this.state.appData.carrier} carrierSlice={this.state.appData.carrierSlice}/>
+          </main>
         </div>
       )
     }
