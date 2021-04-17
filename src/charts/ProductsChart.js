@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import './charts.css';
 
 /* 
 - the newest version of chart.js DOES NOT work will with react 
@@ -12,7 +13,8 @@ import { Doughnut } from 'react-chartjs-2';
 
 export default function ProductsChart(props){
         return (
-            <div className='products-chart'>
+            <div className='chart products-chart'>
+                <h2 className='title'>Products</h2>
                 <Doughnut
                     data={{ 
                         labels: props.products.map(i => {

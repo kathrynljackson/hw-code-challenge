@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import './charts.css';
 
 /* 
 - the newest version of chart.js DOES NOT work will with react 
@@ -18,7 +19,8 @@ class PremiumChart extends Component{
 
    render(){ 
         return (
-            <div>
+            <div className= 'chart premium-chart'>
+                <h2 className='title'>Premium Range</h2>
                 <Doughnut
                     data={{ 
                         labels: this.props.premiums.map(i => {

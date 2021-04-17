@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import './charts.css';
 
 /* 
 - the newest version of chart.js DOES NOT work will with react 
@@ -12,7 +13,8 @@ import { Doughnut } from 'react-chartjs-2';
 
 export default function MarketChart(props){
         return (
-            <div className='market-chart'>
+            <div className='chart market-chart'>
+                <h2 className='title'>Market</h2>
                 <Doughnut
                     data={{ 
                         labels: props.brokerDivision.map(m => {
