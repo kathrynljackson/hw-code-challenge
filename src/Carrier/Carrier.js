@@ -3,6 +3,7 @@ import IndustryChart from '../charts/IndustryChart';
 import PremiumChart from '../charts/PremuimChart';
 import ProductsChart from '../charts/ProductsChart';
 import MarketChart from '../charts/MarketChart';
+import './Carrier.css'
 
 class Carrier extends Component{
     constructor(props){
@@ -20,7 +21,8 @@ class Carrier extends Component{
             )
         } else {
             return(
-                <div>
+                <div className='carrier-side'>
+                    <h1>Carrier Placement</h1>
                     <IndustryChart industries={this.props.carrierSlice.industries}/>
                     <PremiumChart premiums={this.props.carrierSlice.premiumRange}/>
                     <ProductsChart products={this.props.carrierSlice.products} />

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import IndustryChart from '../charts/IndustryChart';
 import PremiumChart from '../charts/PremuimChart';
 import ProductsChart from '../charts/ProductsChart';
+import './Broker.css';
 
 class Broker extends Component{
     constructor(props){
@@ -19,7 +20,8 @@ class Broker extends Component{
             )
         } else {
             return(
-                <div>
+                <div className='broker-side'>
+                    <h1 className='title'>Broker Book</h1>
                     <IndustryChart industries={this.props.brokerSlice.industries}/>
                     <PremiumChart premiums={this.props.brokerSlice.premiumRange}/>
                     <ProductsChart products={this.props.brokerSlice.products} />
