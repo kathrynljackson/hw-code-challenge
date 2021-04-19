@@ -21,7 +21,7 @@ export default function MarketChart(props){
                             return m.title
                         }),
                         datasets: [{
-                            label: 'Industries',
+                            label: 'Market',
                             data: props.brokerDivision.map(m => {
                                 return m.premium
                             }),
