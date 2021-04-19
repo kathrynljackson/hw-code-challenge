@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import IndustryChart from '../charts/IndustryChart';
-import PremiumChart from '../charts/PremuimChart';
+import PremiumChart from '../charts/PremiumChart';
 import ProductsChart from '../charts/ProductsChart';
 import './Broker.css';
 
