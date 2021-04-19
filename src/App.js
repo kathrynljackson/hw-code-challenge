@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Carrier from './Carrier/Carrier';
 import Broker from './Broker/Broker';
 import Toggle from './Toggle/Toggle';
+import regeneratorRuntime from "regenerator-runtime";
 
 class App extends Component {
   constructor(props) {
